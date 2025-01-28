@@ -1,0 +1,12 @@
+server :
+  port : ${SERVER_PORT:8080}
+
+first:
+  next:
+    url: http://secondservice:8082/second/process
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

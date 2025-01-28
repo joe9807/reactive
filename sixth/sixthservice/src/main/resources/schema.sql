@@ -1,0 +1,7 @@
+CREATE TABLE if not exists reactive_fields(
+  id BIGSERIAL PRIMARY KEY,
+  field111111 VARCHAR(500),
+  field222222 VARCHAR(500),
+  field333333 VARCHAR(500),
+  field444444 VARCHAR(500)
+);

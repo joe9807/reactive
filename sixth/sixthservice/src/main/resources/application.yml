@@ -1,0 +1,22 @@
+server :
+  port : ${SERVER_PORT:8080}
+
+spring:
+  data:
+    r2dbc:
+      repositories:
+        enabled: true
+  r2dbc:
+    password: postgres
+    url: r2dbc:postgresql://${SERVER_HOST:localhost}:5432/reactive_database
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
