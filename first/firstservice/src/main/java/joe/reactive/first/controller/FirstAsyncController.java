@@ -1,9 +1,9 @@
-package joe.reactive.second.controller;
+package joe.reactive.first.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import joe.reactive.second.client.SecondClient;
-import joe.reactive.second.dto.SecondDto;
-import joe.reactive.second.service.SecondService;
+import joe.reactive.first.client.FirstClient;
+import joe.reactive.first.dto.FirstDto;
+import joe.reactive.first.service.FirstService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,14 +14,14 @@ import reactor.core.publisher.Mono;
 
 @Slf4j
 @RestController
-@RequestMapping("second")
+@RequestMapping("async/first")
 @RequiredArgsConstructor
-public class SecondController {
-    private final SecondService secondService;
-    private final SecondClient secondClient;
+public class FirstAsyncController {
+    private final FirstService firstService;
+    private final FirstClient firstClient;
 
     @PostMapping("process")
-    public Mono<JsonNode> process(@RequestBody Mono<SecondDto> secondDto){
-        return secondDto.map(secondService::process).flatMap(secondClient::next);
+    public Mono<JsonNode> process(@RequestBody Mono<FirstDto> firstDto){
+        return firstDto.map(firstService::process).flatMap(firstClient::next);
     }
 }

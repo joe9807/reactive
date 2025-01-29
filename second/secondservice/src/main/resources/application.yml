@@ -3,7 +3,8 @@ server :
 
 second:
   next:
-    url: http://thirdservice:8083/third/process
+    asyncUrl: http://thirdservice:8083/async/third/process
+    syncUrl: http://thirdservice:8083/sync/third/process
 
 management:
   endpoints:

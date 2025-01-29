@@ -1,7 +1,7 @@
 package joe.reactive.first.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import joe.reactive.first.client.FirstClient;
+import joe.reactive.first.config.AppConfig;
 import joe.reactive.first.dto.FirstDto;
 import joe.reactive.first.service.FirstService;
 import lombok.RequiredArgsConstructor;
@@ -10,18 +10,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Mono;
+import org.springframework.web.client.RestTemplate;
+
+import java.net.URI;
 
 @Slf4j
 @RestController
-@RequestMapping("first")
+@RequestMapping("sync/first")
 @RequiredArgsConstructor
-public class FirstController {
+public class FirstSyncController {
     private final FirstService firstService;
-    private final FirstClient firstClient;
+    private final RestTemplate restTemplate;
+    private final AppConfig appConfig;
 
     @PostMapping("process")
-    public Mono<JsonNode> process(@RequestBody Mono<FirstDto> firstDto){
-        return firstDto.map(firstService::process).flatMap(firstClient::next);
+    public JsonNode process(@RequestBody FirstDto firstDto){
+        return restTemplate.postForObject(URI.create(appConfig.getNext().getSyncUrl()), firstService.process(firstDto), JsonNode.class);
     }
 }

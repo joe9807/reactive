@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.netty.http.client.HttpClient;
 import reactor.netty.resources.ConnectionProvider;
@@ -30,8 +31,13 @@ public class FirstApplication {
 				.responseTimeout(Duration.ofSeconds(1000));
 
 		return WebClient.builder()
-				.baseUrl(appConfig.getNext().getUrl())
+				.baseUrl(appConfig.getNext().getAsyncUrl())
 				.clientConnector(new ReactorClientHttpConnector(httpClient))
 				.build();
+	}
+
+	@Bean
+	public RestTemplate restTemplate(){
+		return new RestTemplate();
 	}
 }

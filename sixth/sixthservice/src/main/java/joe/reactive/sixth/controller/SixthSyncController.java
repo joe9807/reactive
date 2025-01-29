@@ -2,24 +2,25 @@ package joe.reactive.sixth.controller;
 
 import joe.reactive.sixth.SixthDto;
 import joe.reactive.sixth.entity.ReactiveFields;
-import joe.reactive.sixth.service.SixthService;
+import joe.reactive.sixth.mapper.SixthMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.r2dbc.repository.R2dbcRepository;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Mono;
 
 @Slf4j
 @RestController
-@RequestMapping("async/sixth")
+@RequestMapping("sync/sixth")
 @RequiredArgsConstructor
-public class SixthController {
-    private final SixthService sixthService;
+public class SixthSyncController {
+    private final R2dbcRepository<ReactiveFields, Long> repository;
+    private final SixthMapper mapper;
 
     @PostMapping("process")
-    public Mono<ReactiveFields> process(@RequestBody Mono<SixthDto> sixthDtoMono){
-        return sixthDtoMono.flatMap(sixthService::process);
+    public ReactiveFields process(@RequestBody SixthDto sixthDto){
+        return repository.save(mapper.map(sixthDto, "SYNC")).toFuture().join();
     }
 }

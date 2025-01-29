@@ -17,6 +17,7 @@ public class AppConfig {
 
     @Data
     public static class Next{
-        private String url;
+        private String asyncUrl;
+        private String syncUrl;
     }
 }

@@ -1,7 +1,6 @@
 package joe.reactive.fifth.client;
 
 import joe.reactive.fifth.FifthDto;
-import joe.reactive.fifth.config.AppConfig;
 import joe.reactive.fifth.mapper.FifthMapper;
 import joe.reactive.fourth.FourthCallbackDto;
 import lombok.RequiredArgsConstructor;
@@ -18,14 +17,13 @@ import java.time.temporal.ChronoUnit;
 @Component
 @RequiredArgsConstructor
 public class FifthClient {
-    private final AppConfig appConfig;
     private final FifthMapper mapper;
     private final WebClient webClient;
 
     public Flux<Object> process(ConsumerRecord<String, FifthDto> record){
         log.info("record: {}; {}", record.key(), record.value());
 
-        Flux<Object> nextFlux = webClient.post().uri(appConfig.getNext().getUrl())
+        Flux<Object> nextFlux = webClient.post()
                 .bodyValue(mapper.map(record.value()))
                 .retrieve().bodyToFlux(Object.class)
                 .doOnError(e-> log.error("Send failed {}", e.getMessage()))

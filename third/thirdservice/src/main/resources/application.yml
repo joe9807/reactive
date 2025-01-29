@@ -3,9 +3,10 @@ server :
 
 third:
   bootstrapServers: ${BOOTSTRAP_SERVERS:192.168.0.49:9092}
-  callbackUrl: http://thirdservice:${server.port}/third/callback
+  callbackUrl: http://thirdservice:${server.port}/async/third/callback
   next:
     topic: fourth_topic
+    syncUrl: http://fourthservice:8084/sync/fourth/process
 
 management:
   endpoints:

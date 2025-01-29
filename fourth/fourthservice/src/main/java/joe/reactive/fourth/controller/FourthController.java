@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
 
 @Slf4j
 @RestController
-@RequestMapping("fourth")
+@RequestMapping("async/fourth")
 @RequiredArgsConstructor
 public class FourthController {
 

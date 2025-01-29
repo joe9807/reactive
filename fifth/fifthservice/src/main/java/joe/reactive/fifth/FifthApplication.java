@@ -1,10 +1,12 @@
 package joe.reactive.fifth;
 
 import io.netty.channel.ChannelOption;
+import joe.reactive.fifth.config.AppConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.netty.http.client.HttpClient;
 import reactor.netty.resources.ConnectionProvider;
@@ -19,7 +21,7 @@ public class FifthApplication {
 	}
 
 	@Bean
-	public WebClient webClient(){
+	public WebClient webClient(AppConfig appConfig){
 		HttpClient httpClient = HttpClient.create(ConnectionProvider.builder("custom")
 						.maxConnections(1000) // увеличьте это значение
 						.pendingAcquireMaxCount(20000) // увеличьте это значение
@@ -29,7 +31,14 @@ public class FifthApplication {
 				.responseTimeout(Duration.ofSeconds(1000));
 
 		return WebClient.builder()
+				.baseUrl(appConfig.getNext().getAsyncUrl())
 				.clientConnector(new ReactorClientHttpConnector(httpClient))
 				.build();
+	}
+
+
+	@Bean
+	public RestTemplate restTemplate(){
+		return new RestTemplate();
 	}
 }

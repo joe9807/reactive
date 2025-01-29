@@ -5,9 +5,10 @@ fourth:
   bootstrapServers: ${BOOTSTRAP_SERVERS:192.168.0.49:9092}
   topic: fourth_topic
   groupId: fourth_group
-  callbackUrl: http://fourthservice:${server.port}/fourth/callback
+  callbackUrl: http://fourthservice:${server.port}/async/fourth/callback
   next:
     topic: fifth_topic
+    syncUrl: http://fifthservice:8085/sync/fifth/process
 
 management:
   endpoints:

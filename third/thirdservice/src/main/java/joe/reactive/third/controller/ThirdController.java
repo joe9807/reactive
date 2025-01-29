@@ -16,7 +16,7 @@ import java.util.Map;
 
 @Slf4j
 @RestController
-@RequestMapping("third")
+@RequestMapping("async/third")
 @RequiredArgsConstructor
 public class ThirdController {
     private final ThirdProducer thirdProducer;

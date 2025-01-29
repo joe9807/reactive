@@ -19,5 +19,6 @@ public class AppConfig {
     @Data
     public static class Next{
         private String topic;
+        private String syncUrl;
     }
 }
