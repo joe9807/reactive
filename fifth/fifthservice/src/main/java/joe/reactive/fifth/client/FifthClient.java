@@ -32,13 +32,11 @@ public class FifthClient {
         if (record.value().getCallbackUrl() != null) {
             long timeElapsed = ChronoUnit.MILLIS.between(record.value().getStart(), LocalDateTime.now());
 
-            return Flux.merge(webClient.post().uri(record.value().getCallbackUrl())
+            return nextFlux.flatMap(o -> webClient.post().uri(record.value().getCallbackUrl())
                             .bodyValue(FourthCallbackDto.builder().timeElapsed(timeElapsed).key(record.key()).build())
                             .retrieve().bodyToFlux(String.class)
                             .doOnError(e-> log.error("Send callback failed {}", e.getMessage()))
-                            .onErrorComplete(),
-                    nextFlux
-            );
+                            .onErrorComplete());
         } else {
             return nextFlux;
         }
