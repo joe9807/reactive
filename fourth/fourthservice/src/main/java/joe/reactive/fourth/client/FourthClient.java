@@ -10,10 +10,10 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
-import reactor.kafka.sender.SenderResult;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Map;
 
 @Slf4j
 @Component
@@ -24,10 +24,11 @@ public class FourthClient {
     private final WebClient webClient;
 
     public Flux<Object> process(ConsumerRecord<String, FourthDto> record){
-        log.info("process: {}; {}", record.key(), record.value());
+        log.info("ASYNC: record: {}; {}", record.key(), record.value());
 
-        Flux<SenderResult<String>> fluxNext = fourthProducer.send(record.value())
+        Flux<Map<String, String>> fluxNext = fourthProducer.send(record.value())
                 .doOnNext(unused -> meterRegistry.counter("kafka.fourth.records.produced").increment())
+                .map(stringSenderResult -> Map.of("correlationMetadata", stringSenderResult.correlationMetadata()))
                 .doOnError(e-> log.error("Send failed {}", e.getMessage()))
                 .onErrorComplete();
 

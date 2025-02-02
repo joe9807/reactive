@@ -20,7 +20,7 @@ public class ThirdProducer {
     private final ThirdMapper mapper;
 
     public SenderRecord<String, FourthDto, String> createRecord(ThirdDto thirdDto){
-        log.info("process: {}", thirdDto);
+        log.info("ASYNC: dto: {}", thirdDto);
         String key = UUID.randomUUID().toString();
         return SenderRecord.create(new ProducerRecord<>(appConfig.getNext().getTopic(), key, mapper.map(thirdDto, appConfig.getCallbackUrl())), key);
     }

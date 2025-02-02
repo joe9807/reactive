@@ -14,7 +14,7 @@ public class FirstService {
     private final FirstMapper mapper;
 
     public SecondDto process(FirstDto firstDto){
-        log.info("process: {}", firstDto);
+        log.info("ASYNC: dto: {}", firstDto);
         return mapper.map(firstDto);
     }
 }

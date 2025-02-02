@@ -21,6 +21,7 @@ public class SixthSyncController {
 
     @PostMapping("process")
     public ReactiveFields process(@RequestBody SixthDto sixthDto){
+        log.info("SYNC: dto: {}", sixthDto);
         return repository.save(mapper.map(sixthDto, "SYNC")).toFuture().join();
     }
 }

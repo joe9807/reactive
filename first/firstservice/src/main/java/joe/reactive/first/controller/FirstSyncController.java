@@ -25,6 +25,7 @@ public class FirstSyncController {
 
     @PostMapping("process")
     public JsonNode process(@RequestBody FirstDto firstDto){
+        log.info("SYNC: dto: {}", firstDto);
         return restTemplate.postForObject(URI.create(appConfig.getNext().getSyncUrl()), firstService.process(firstDto), JsonNode.class);
     }
 }
