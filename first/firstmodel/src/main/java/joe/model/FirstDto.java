@@ -1,4 +1,4 @@
-package joe.reactive.first.dto;
+package joe.model;
 
 import lombok.Builder;
 import lombok.Data;

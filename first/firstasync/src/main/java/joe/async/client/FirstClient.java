@@ -1,4 +1,4 @@
-package joe.reactive.first.client;
+package joe.async.client;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import joe.reactive.second.dto.SecondDto;

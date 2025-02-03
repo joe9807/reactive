@@ -1,11 +1,12 @@
-package joe.reactive.first.controller;
+package joe.sync.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import joe.reactive.first.config.AppConfig;
-import joe.reactive.first.dto.FirstDto;
-import joe.reactive.first.service.FirstService;
+import joe.model.FirstDto;
+import joe.model.mapper.FirstMapper;
+import joe.sync.config.AppConfig;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,14 +19,15 @@ import java.net.URI;
 @RestController
 @RequestMapping("sync/first")
 @RequiredArgsConstructor
+@ComponentScan(basePackages = "joe.model.mapper")
 public class FirstSyncController {
-    private final FirstService firstService;
+    private final FirstMapper mapper;
     private final RestTemplate restTemplate;
     private final AppConfig appConfig;
 
     @PostMapping("process")
     public JsonNode process(@RequestBody FirstDto firstDto){
         log.info("SYNC: dto: {}", firstDto);
-        return restTemplate.postForObject(URI.create(appConfig.getNext().getSyncUrl()), firstService.process(firstDto), JsonNode.class);
+        return restTemplate.postForObject(URI.create(appConfig.getNext().getUrl()), mapper.map(firstDto), JsonNode.class);
     }
 }

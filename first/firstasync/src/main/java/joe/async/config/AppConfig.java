@@ -1,4 +1,4 @@
-package joe.reactive.first.config;
+package joe.async.config;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +14,6 @@ public class AppConfig {
 
     @Data
     public static class Next{
-        private String asyncUrl;
-        private String syncUrl;
+        private String url;
     }
 }

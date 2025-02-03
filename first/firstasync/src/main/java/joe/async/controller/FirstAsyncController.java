@@ -1,9 +1,9 @@
-package joe.reactive.first.controller;
+package joe.async.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import joe.reactive.first.client.FirstClient;
-import joe.reactive.first.dto.FirstDto;
-import joe.reactive.first.service.FirstService;
+import joe.async.client.FirstClient;
+import joe.model.FirstDto;
+import joe.async.service.FirstService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;

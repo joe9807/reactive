@@ -1,7 +1,7 @@
-package joe.reactive.first;
+package joe.async;
 
 import io.netty.channel.ChannelOption;
-import joe.reactive.first.config.AppConfig;
+import joe.async.config.AppConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -14,10 +14,10 @@ import reactor.netty.resources.ConnectionProvider;
 import java.time.Duration;
 
 @SpringBootApplication
-public class FirstApplication {
+public class FirstAsyncApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FirstApplication.class, args);
+		SpringApplication.run(FirstAsyncApplication.class, args);
 	}
 
 	@Bean
@@ -31,7 +31,7 @@ public class FirstApplication {
 				.responseTimeout(Duration.ofSeconds(1000));
 
 		return WebClient.builder()
-				.baseUrl(appConfig.getNext().getAsyncUrl())
+				.baseUrl(appConfig.getNext().getUrl())
 				.clientConnector(new ReactorClientHttpConnector(httpClient))
 				.build();
 	}

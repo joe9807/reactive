@@ -1,6 +1,6 @@
-package joe.reactive.first.mapper;
+package joe.model.mapper;
 
-import joe.reactive.first.dto.FirstDto;
+import joe.model.FirstDto;
 import joe.reactive.second.dto.SecondDto;
 import org.mapstruct.Mapper;
 

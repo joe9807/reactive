@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>firstmodel</artifactId>
+    <artifactId>firstsync</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -19,9 +19,22 @@
 
     <dependencies>
         <dependency>
-            <groupId>joe.reactive</groupId>
-            <artifactId>secondmodel</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>joe</groupId>
+            <artifactId>firstmodel</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
