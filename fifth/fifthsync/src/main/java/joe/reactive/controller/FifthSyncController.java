@@ -1,8 +1,8 @@
-package joe.reactive.fifth.controller;
+package joe.reactive.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import joe.reactive.config.AppConfig;
 import joe.reactive.fifth.FifthDto;
-import joe.reactive.fifth.config.AppConfig;
 import joe.reactive.fifth.mapper.FifthMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +26,6 @@ public class FifthSyncController {
     @PostMapping("process")
     public JsonNode process(@RequestBody FifthDto fifthDto){
         log.info("SYNC: dto: {}", fifthDto);
-        return restTemplate.postForObject(URI.create(appConfig.getNext().getSyncUrl()), mapper.map(fifthDto), JsonNode.class);
+        return restTemplate.postForObject(URI.create(appConfig.getNext().getUrl()), mapper.map(fifthDto), JsonNode.class);
     }
 }

@@ -6,7 +6,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.client.reactive.ReactorClientHttpConnector;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.netty.http.client.HttpClient;
 import reactor.netty.resources.ConnectionProvider;
@@ -14,10 +13,10 @@ import reactor.netty.resources.ConnectionProvider;
 import java.time.Duration;
 
 @SpringBootApplication
-public class FifthApplication {
+public class FifthAsyncApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FifthApplication.class, args);
+		SpringApplication.run(FifthAsyncApplication.class, args);
 	}
 
 	@Bean
@@ -31,14 +30,8 @@ public class FifthApplication {
 				.responseTimeout(Duration.ofSeconds(1000));
 
 		return WebClient.builder()
-				.baseUrl(appConfig.getNext().getAsyncUrl())
+				.baseUrl(appConfig.getNext().getUrl())
 				.clientConnector(new ReactorClientHttpConnector(httpClient))
 				.build();
-	}
-
-
-	@Bean
-	public RestTemplate restTemplate(){
-		return new RestTemplate();
 	}
 }

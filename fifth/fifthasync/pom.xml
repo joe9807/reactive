@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>fifthmodel</artifactId>
+    <artifactId>fifthasync</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -19,14 +19,32 @@
 
     <dependencies>
         <dependency>
-            <groupId>joe.reactive</groupId>
-            <artifactId>fourthmodel</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.projectreactor.kafka</groupId>
+            <artifactId>reactor-kafka</artifactId>
+            <version>1.3.23</version>
         </dependency>
         <dependency>
             <groupId>joe.reactive</groupId>
-            <artifactId>sixthmodel</artifactId>
+            <artifactId>fifthmodel</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

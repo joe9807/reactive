@@ -7,9 +7,9 @@ import org.apache.kafka.common.serialization.Deserializer;
 
 import java.io.IOException;
 
-public class FifthDtoDeserializer implements Deserializer {
+public class FifthDtoDeserializer implements Deserializer<FifthDto> {
     @Override
-    public Object deserialize(String s, byte[] bytes) {
+    public FifthDto deserialize(String s, byte[] bytes) {
         try {
             ObjectMapper mapper = new ObjectMapper();
             mapper.registerModule(new JavaTimeModule());

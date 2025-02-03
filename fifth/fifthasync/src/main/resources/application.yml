@@ -6,8 +6,7 @@ fifth:
   topic: fifth_topic
   groupId: fifth_group
   next:
-    asyncUrl: http://${SERVER_HOST}:8086/async/sixth/process
-    syncUrl: http://${SERVER_HOST}:8086/sync/sixth/process
+    url: http://${SERVER_HOST}:8086/async/sixth/process
 
 management:
   endpoints:
