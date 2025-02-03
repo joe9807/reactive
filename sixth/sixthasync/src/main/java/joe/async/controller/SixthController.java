@@ -1,8 +1,8 @@
-package joe.reactive.sixth.controller;
+package joe.async.controller;
 
 import joe.reactive.sixth.SixthDto;
-import joe.reactive.sixth.entity.ReactiveFields;
-import joe.reactive.sixth.service.SixthService;
+import joe.async.entity.ReactiveFields;
+import joe.async.service.SixthService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;

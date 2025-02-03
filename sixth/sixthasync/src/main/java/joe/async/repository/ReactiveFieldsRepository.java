@@ -1,6 +1,6 @@
-package joe.reactive.sixth.repository;
+package joe.async.repository;
 
-import joe.reactive.sixth.entity.ReactiveFields;
+import joe.async.entity.ReactiveFields;
 import org.springframework.data.r2dbc.repository.R2dbcRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,13 +1,13 @@
-package joe.reactive.sixth;
+package joe.sync;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SixthApplication {
+public class SixthSyncApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SixthApplication.class, args);
+		SpringApplication.run(SixthSyncApplication.class, args);
 	}
 
 }

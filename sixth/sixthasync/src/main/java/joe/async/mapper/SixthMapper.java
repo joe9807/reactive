@@ -1,7 +1,7 @@
-package joe.reactive.sixth.mapper;
+package joe.async.mapper;
 
+import joe.async.entity.ReactiveFields;
 import joe.reactive.sixth.SixthDto;
-import joe.reactive.sixth.entity.ReactiveFields;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 

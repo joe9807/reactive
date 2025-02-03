@@ -1,4 +1,4 @@
-package joe.reactive.sixth.entity;
+package joe.async.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
