@@ -1,7 +1,7 @@
-package joe.reactive.fifth;
+package joe.async;
 
 import io.netty.channel.ChannelOption;
-import joe.reactive.fifth.config.AppConfig;
+import joe.async.config.AppConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;

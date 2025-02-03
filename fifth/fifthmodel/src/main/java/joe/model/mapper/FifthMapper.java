@@ -1,6 +1,6 @@
-package joe.reactive.fifth.mapper;
+package joe.model.mapper;
 
-import joe.reactive.fifth.FifthDto;
+import joe.model.FifthDto;
 import joe.reactive.sixth.SixthDto;
 import org.mapstruct.Mapper;
 

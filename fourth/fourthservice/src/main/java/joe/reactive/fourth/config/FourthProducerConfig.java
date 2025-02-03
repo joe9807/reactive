@@ -1,6 +1,6 @@
 package joe.reactive.fourth.config;
 
-import joe.reactive.fifth.FifthDto;
+import joe.model.FifthDto;
 import joe.reactive.fourth.serdes.FifthDtoSerializer;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.producer.ProducerConfig;

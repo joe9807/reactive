@@ -1,7 +1,7 @@
-package joe.reactive.fifth.client;
+package joe.async.client;
 
-import joe.reactive.fifth.FifthDto;
-import joe.reactive.fifth.mapper.FifthMapper;
+import joe.model.FifthDto;
+import joe.model.mapper.FifthMapper;
 import joe.reactive.fourth.FourthCallbackDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package joe.reactive.fifth;
+package joe.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

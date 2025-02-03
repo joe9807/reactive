@@ -1,6 +1,6 @@
 package joe.reactive.fourth.kafka;
 
-import joe.reactive.fifth.FifthDto;
+import joe.model.FifthDto;
 import joe.reactive.fourth.FourthDto;
 import joe.reactive.fourth.config.AppConfig;
 import joe.reactive.fourth.mapper.FourthMapper;

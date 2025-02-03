@@ -1,8 +1,8 @@
-package joe.reactive.fifth.kafka;
+package joe.async.kafka;
 
 import io.micrometer.core.instrument.MeterRegistry;
-import joe.reactive.fifth.FifthDto;
-import joe.reactive.fifth.client.FifthClient;
+import joe.model.FifthDto;
+import joe.async.client.FifthClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;

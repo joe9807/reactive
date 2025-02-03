@@ -1,7 +1,7 @@
-package joe.reactive.fifth.config;
+package joe.async.config;
 
-import joe.reactive.fifth.FifthDto;
-import joe.reactive.fifth.serdes.FifthDtoDeserializer;
+import joe.async.serdes.FifthDtoDeserializer;
+import joe.model.FifthDto;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;

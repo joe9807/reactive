@@ -1,4 +1,4 @@
-package joe.reactive.config;
+package joe.async.config;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +11,9 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "fifth")
 public class AppConfig {
     private Next next;
+    private String bootstrapServers;
+    private String topic;
+    private String groupId;
 
     @Data
     public static class Next{

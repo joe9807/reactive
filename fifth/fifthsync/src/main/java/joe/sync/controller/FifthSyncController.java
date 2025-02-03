@@ -1,9 +1,9 @@
-package joe.reactive.controller;
+package joe.sync.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import joe.reactive.config.AppConfig;
-import joe.reactive.fifth.FifthDto;
-import joe.reactive.fifth.mapper.FifthMapper;
+import joe.sync.config.AppConfig;
+import joe.model.FifthDto;
+import joe.model.mapper.FifthMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
