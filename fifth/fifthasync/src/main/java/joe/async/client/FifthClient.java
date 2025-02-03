@@ -1,12 +1,11 @@
 package joe.async.client;
 
+import joe.async.mapper.FifthMapper;
 import joe.model.FifthDto;
-import joe.model.mapper.FifthMapper;
-import joe.reactive.fourth.FourthCallbackDto;
+import joe.model.FourthCallbackDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
@@ -17,7 +16,6 @@ import java.time.temporal.ChronoUnit;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-@ComponentScan(basePackages = "joe.model.mapper")
 public class FifthClient {
     private final FifthMapper mapper;
     private final WebClient webClient;

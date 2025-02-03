@@ -1,0 +1,15 @@
+server :
+  port : ${SERVER_PORT:8080}
+
+fourth:
+  next:
+    url: http://fifthservice:8085/sync/fifth/process
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

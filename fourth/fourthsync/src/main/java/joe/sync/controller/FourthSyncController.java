@@ -1,12 +1,11 @@
 package joe.sync.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import joe.model.FourthDto;
 import joe.sync.config.AppConfig;
-import joe.model.FifthDto;
-import joe.sync.mapper.FifthMapper;
+import joe.sync.mapper.FourthMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,17 +16,16 @@ import java.net.URI;
 
 @Slf4j
 @RestController
-@RequestMapping("sync/fifth")
+@RequestMapping("sync/fourth")
 @RequiredArgsConstructor
-@ComponentScan(basePackages = "joe.model.mapper")
-public class FifthSyncController {
+public class FourthSyncController {
     private final RestTemplate restTemplate;
     private final AppConfig appConfig;
-    private final FifthMapper mapper;
+    private final FourthMapper mapper;
 
     @PostMapping("process")
-    public JsonNode process(@RequestBody FifthDto fifthDto){
-        log.info("SYNC: dto: {}", fifthDto);
-        return restTemplate.postForObject(URI.create(appConfig.getNext().getUrl()), mapper.map(fifthDto), JsonNode.class);
+    public JsonNode process(@RequestBody FourthDto fourthDto){
+        log.info("SYNC: dto: {}", fourthDto);
+        return restTemplate.postForObject(URI.create(appConfig.getNext().getUrl()), mapper.map(fourthDto, null), JsonNode.class);
     }
 }

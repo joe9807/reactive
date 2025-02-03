@@ -5,12 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>joe</groupId>
-        <artifactId>fifth</artifactId>
+        <artifactId>fourth</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>fifthasync</artifactId>
-    <description>Fifth Async Microservice</description>
+    <artifactId>fourthasync</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -31,6 +30,11 @@
             <groupId>io.projectreactor.kafka</groupId>
             <artifactId>reactor-kafka</artifactId>
             <version>1.3.23</version>
+        </dependency>
+        <dependency>
+            <groupId>joe.reactive</groupId>
+            <artifactId>thirdmodel</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>joe</groupId>
