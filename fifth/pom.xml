@@ -8,11 +8,10 @@
 		<version>3.3.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>joe.reactive</groupId>
+	<groupId>joe</groupId>
 	<artifactId>fifth</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-	<description>Fifth Reactive Microservice</description>
 
     <modules>
         <module>fifthmodel</module>
