@@ -1,7 +1,7 @@
 package joe.async.service;
 
+import joe.async.mapper.FirstMapper;
 import joe.model.FirstDto;
-import joe.model.mapper.FirstMapper;
 import joe.reactive.second.dto.SecondDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

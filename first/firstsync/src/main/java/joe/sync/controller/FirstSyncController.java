@@ -2,8 +2,8 @@ package joe.sync.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import joe.model.FirstDto;
-import joe.model.mapper.FirstMapper;
 import joe.sync.config.AppConfig;
+import joe.sync.mapper.FirstMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.ComponentScan;
