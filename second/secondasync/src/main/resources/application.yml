@@ -1,0 +1,12 @@
+server :
+  port : ${SERVER_PORT:8080}
+
+second:
+  next:
+    url: http://thirdservice:8083/async/third/process
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
