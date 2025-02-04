@@ -1,4 +1,4 @@
-package joe.async.config;
+package joe.sync.config;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;

@@ -1,4 +1,4 @@
-package joe.async.mapper;
+package joe.sync.mapper;
 
 import joe.reactive.dto.ThirdDto;
 import joe.model.SecondDto;

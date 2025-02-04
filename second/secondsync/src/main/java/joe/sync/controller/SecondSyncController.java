@@ -1,9 +1,9 @@
-package joe.async.controller;
+package joe.sync.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import joe.sync.mapper.SecondMapper;
 import joe.model.SecondDto;
-import joe.async.config.AppConfig;
-import joe.async.mapper.SecondMapper;
+import joe.sync.config.AppConfig;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
