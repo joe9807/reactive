@@ -1,9 +1,9 @@
-package joe.reactive.third.kafka;
+package joe.async.kafka;
 
+import joe.model.FourthDto;
 import joe.reactive.dto.ThirdDto;
-import joe.reactive.fourth.FourthDto;
-import joe.reactive.third.config.AppConfig;
-import joe.reactive.third.mapper.ThirdMapper;
+import joe.async.config.AppConfig;
+import joe.async.mapper.ThirdMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.ProducerRecord;

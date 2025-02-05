@@ -1,9 +1,7 @@
-package joe.reactive.third.config;
+package joe.async.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import joe.reactive.fourth.FourthDto;
-import joe.reactive.third.serde.ThirdDtoSerializer;
+import joe.async.serde.ThirdDtoSerializer;
+import joe.model.FourthDto;
 import lombok.RequiredArgsConstructor;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;

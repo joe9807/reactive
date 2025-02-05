@@ -1,9 +1,9 @@
-package joe.reactive.third.serde;
+package joe.async.serde;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import joe.reactive.fourth.FourthDto;
+import joe.model.FourthDto;
 import org.apache.kafka.common.serialization.Serializer;
 
 public class ThirdDtoSerializer implements Serializer<FourthDto> {

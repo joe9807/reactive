@@ -6,7 +6,6 @@ third:
   callbackUrl: http://thirdservice:${server.port}/async/third/callback
   next:
     topic: fourth_topic
-    syncUrl: http://fourthservice:8084/sync/fourth/process
 
 management:
   endpoints:

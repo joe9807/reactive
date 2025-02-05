@@ -1,4 +1,4 @@
-package joe.reactive.third.config;
+package joe.sync.config;
 
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -11,12 +11,9 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "third")
 public class AppConfig {
     private Next next;
-    private String bootstrapServers;
-    private String callbackUrl;
 
     @Data
     public static class Next{
-        private String topic;
-        private String syncUrl;
+        private String url;
     }
 }

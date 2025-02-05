@@ -1,7 +1,7 @@
-package joe.reactive.third.mapper;
+package joe.async.mapper;
 
+import joe.model.FourthDto;
 import joe.reactive.dto.ThirdDto;
-import joe.reactive.fourth.FourthDto;
 import org.mapstruct.Mapper;
 
 import java.time.LocalDateTime;

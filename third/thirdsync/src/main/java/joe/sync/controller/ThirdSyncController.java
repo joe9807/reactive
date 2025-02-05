@@ -1,9 +1,9 @@
-package joe.reactive.third.controller;
+package joe.sync.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import joe.reactive.dto.ThirdDto;
-import joe.reactive.third.config.AppConfig;
-import joe.reactive.third.mapper.ThirdMapper;
+import joe.sync.config.AppConfig;
+import joe.sync.mapper.ThirdMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,6 +26,6 @@ public class ThirdSyncController {
     @PostMapping("process")
     public JsonNode process(@RequestBody ThirdDto thirdDto){
         log.info("SYNC: dto: {}", thirdDto);
-        return restTemplate.postForObject(URI.create(appConfig.getNext().getSyncUrl()), mapper.map(thirdDto, null), JsonNode.class);
+        return restTemplate.postForObject(URI.create(appConfig.getNext().getUrl()), mapper.map(thirdDto, null), JsonNode.class);
     }
 }
