@@ -3,7 +3,7 @@ server :
 
 fifth:
   next:
-    url: http://${SERVER_HOST}:8086/sync/sixth/process
+    url: http://${SERVER_HOST}:7086/sync/sixth/process
 
 management:
   endpoints:

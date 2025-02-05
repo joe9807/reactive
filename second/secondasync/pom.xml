@@ -29,7 +29,7 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>joe.reactive</groupId>
+            <groupId>joe</groupId>
             <artifactId>thirdmodel</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

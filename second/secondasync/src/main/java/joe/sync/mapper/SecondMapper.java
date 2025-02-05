@@ -1,7 +1,7 @@
 package joe.sync.mapper;
 
-import joe.model.SecondDto;
 import joe.reactive.dto.ThirdDto;
+import joe.model.SecondDto;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

@@ -3,7 +3,7 @@ server :
 
 fourth:
   next:
-    url: http://fifthservice:8085/sync/fifth/process
+    url: http://fifthservice:7085/sync/fifth/process
 
 management:
   endpoints:
