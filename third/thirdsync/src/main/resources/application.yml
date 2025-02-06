@@ -3,7 +3,7 @@ server :
 
 third:
   next:
-    url: http://fourthservice:7084/sync/fourth/process
+    url: http://fourthsync:7084/sync/fourth/process
 
 management:
   endpoints:

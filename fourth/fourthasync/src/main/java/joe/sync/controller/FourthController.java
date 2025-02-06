@@ -18,7 +18,7 @@ public class FourthController {
     @PostMapping("callback")
     public Mono<Void> callback(@RequestBody Mono<FourthCallbackDto> callbackDtoMono){
         return callbackDtoMono.flatMap(callbackDto -> {
-            log.info("Message with key {} was process in {} ms", callbackDto.getKey(), callbackDto.getTimeElapsed());
+            log.debug("Message with key {} was process in {} ms", callbackDto.getKey(), callbackDto.getTimeElapsed());
             return Mono.empty();
         });
     }

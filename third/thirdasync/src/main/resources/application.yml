@@ -3,7 +3,7 @@ server :
 
 third:
   bootstrapServers: ${BOOTSTRAP_SERVERS:192.168.0.49:9092}
-  callbackUrl: http://thirdservice:${server.port}/async/third/callback
+  callbackUrl: http://thirdasync:${server.port}/async/third/callback
   next:
     topic: fourth_topic
 

@@ -27,7 +27,7 @@ public class FifthSyncController {
 
     @PostMapping("process")
     public JsonNode process(@RequestBody FifthDto fifthDto){
-        log.info("SYNC: dto: {}", fifthDto);
+        log.debug("SYNC: dto: {}", fifthDto);
         return restTemplate.postForObject(URI.create(appConfig.getNext().getUrl()), mapper.map(fifthDto), JsonNode.class);
     }
 }

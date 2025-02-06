@@ -24,7 +24,7 @@ public class FourthClient {
     private final WebClient webClient;
 
     public Flux<Object> process(ConsumerRecord<String, FourthDto> record){
-        log.info("ASYNC: record: {}; {}", record.key(), record.value());
+        log.debug("ASYNC: record: {}; {}", record.key(), record.value());
 
         Flux<Map<String, String>> fluxNext = fourthProducer.send(record.value())
                 .doOnNext(unused -> meterRegistry.counter("kafka.fourth.records.produced").increment())

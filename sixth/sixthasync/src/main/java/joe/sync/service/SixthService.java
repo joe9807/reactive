@@ -19,7 +19,7 @@ public class SixthService {
     private final MeterRegistry meterRegistry;
 
     public Mono<ReactiveFields> process(SixthDto sixthDto){
-        log.info("ASYNC: dto: {}", sixthDto);
+        log.debug("ASYNC: dto: {}", sixthDto);
 
         return repository.save(mapper.map(sixthDto, "ASYNC"))
                 .doOnError(e->{

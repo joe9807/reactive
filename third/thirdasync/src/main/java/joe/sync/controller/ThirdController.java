@@ -30,13 +30,13 @@ public class ThirdController {
                 .doOnError(e-> log.error("Send failed {}", e.getMessage()))
                 .onErrorComplete()
                 .map(stringSenderResult -> Map.of("correlationMetadata", stringSenderResult.correlationMetadata()))
-                .doOnNext(result -> log.info("result: {}", result));
+                .doOnNext(result -> log.debug("result: {}", result));
     }
 
     @PostMapping("callback")
     public Mono<Void> callback(@RequestBody Mono<ThirdCallbackDto> callbackDtoMono){
         return callbackDtoMono.flatMap(thirdCallbackDto -> {
-            log.info("Message with key {} was process in {} ms", thirdCallbackDto.getKey(), thirdCallbackDto.getTimeElapsed());
+            log.debug("Message with key {} was process in {} ms", thirdCallbackDto.getKey(), thirdCallbackDto.getTimeElapsed());
             return Mono.empty();
         });
     }

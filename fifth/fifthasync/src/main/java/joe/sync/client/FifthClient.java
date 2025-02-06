@@ -21,7 +21,7 @@ public class FifthClient {
     private final WebClient webClient;
 
     public Flux<Object> process(ConsumerRecord<String, FifthDto> record){
-        log.info("ASYNC: record: {}; {}", record.key(), record.value());
+        log.debug("ASYNC: record: {}; {}", record.key(), record.value());
 
         Flux<Object> nextFlux = webClient.post()
                 .bodyValue(mapper.map(record.value()))

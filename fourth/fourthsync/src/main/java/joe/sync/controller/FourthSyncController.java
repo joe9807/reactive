@@ -25,7 +25,7 @@ public class FourthSyncController {
 
     @PostMapping("process")
     public JsonNode process(@RequestBody FourthDto fourthDto){
-        log.info("SYNC: dto: {}", fourthDto);
+        log.debug("SYNC: dto: {}", fourthDto);
         return restTemplate.postForObject(URI.create(appConfig.getNext().getUrl()), mapper.map(fourthDto, null), JsonNode.class);
     }
 }
