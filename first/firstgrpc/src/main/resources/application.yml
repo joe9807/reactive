@@ -1,0 +1,12 @@
+next:
+  port: ${NEXT_SERVER_PORT}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+grpc:
+  server:
+    port: ${SERVER_PORT}
