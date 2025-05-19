@@ -21,6 +21,7 @@
         <module>fourth</module>
         <module>fifth</module>
         <module>sixth</module>
+        <module>proto</module>
     </modules>
     
 </project>

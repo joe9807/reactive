@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option java_package = "joe.model";
+
+message FirstDto {
+  string field1 = 1;
+  string field2 = 2;
+  string field3 = 3;
+  string field4 = 4;
+}
+
+message SecondDto {
+  string field11 = 1;
+  string field22 = 2;
+  string field33 = 3;
+  string field44 = 4;
+}
+
+message ThirdDto {
+  string field111 = 1;
+  string field222 = 2;
+  string field333 = 3;
+  string field444 = 4;
+}
+
+service FirstService {
+  rpc process1 (FirstDto) returns (ThirdDto);
+}
+
+service SecondService {
+  rpc process2 (SecondDto) returns (ThirdDto);
+}
