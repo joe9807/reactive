@@ -17,6 +17,7 @@
 		<module>secondmodel</module>
 		<module>secondasync</module>
 		<module>secondsync</module>
+		<module>secondgrpc</module>
 	</modules>
 	<properties>
 		<java.version>17</java.version>
