@@ -23,6 +23,27 @@ message ThirdDto {
   string field444 = 4;
 }
 
+message FourthDto {
+  string field1111 = 1;
+  string field2222 = 2;
+  string field3333 = 3;
+  string field4444 = 4;
+}
+
+message FifthDto {
+  string field11111 = 1;
+  string field22222 = 2;
+  string field33333 = 3;
+  string field44444 = 4;
+}
+
+message SixthDto {
+  string field111111 = 1;
+  string field222222 = 2;
+  string field333333 = 3;
+  string field444444 = 4;
+}
+
 service FirstService {
   rpc process1 (FirstDto) returns (ThirdDto);
 }

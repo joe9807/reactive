@@ -1,3 +1,6 @@
+server:
+  port: ${TOMCAT_SERVER_PORT}
+
 next:
   port: ${NEXT_SERVER_PORT}
 
