@@ -10,3 +10,8 @@ management:
 grpc:
   server:
     port: ${SERVER_PORT}
+
+  client:
+    second-service:
+      address: static://localhost:6083
+      negotiation-type: plaintext
