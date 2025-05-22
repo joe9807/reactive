@@ -17,6 +17,7 @@
         <module>fifthmodel</module>
 		<module>fifthasync</module>
 		<module>fifthsync</module>
+		<module>fifthgrpc</module>
 	</modules>
 
 	<properties>

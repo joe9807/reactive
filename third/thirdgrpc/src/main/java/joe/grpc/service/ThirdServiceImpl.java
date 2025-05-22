@@ -22,7 +22,7 @@ public class ThirdServiceImpl extends ThirdServiceGrpc.ThirdServiceImplBase {
     private FourthServiceGrpc.FourthServiceStub fourthServiceStub;
 
     @Override
-    public void process3(Api.ThirdDto request, StreamObserver<Api.FifthDto> responseObserver) {
+    public void process3(Api.ThirdDto request, StreamObserver<Api.SixthDto> responseObserver) {
         log.info("request: {}", request);
         fourthServiceStub.process4(mapper.map(request), responseObserver);
     }

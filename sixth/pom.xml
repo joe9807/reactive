@@ -17,6 +17,7 @@
         <module>sixthmodel</module>
 		<module>sixthasync</module>
         <module>sixthsync</module>
+		<module>sixthgrpc</module>
     </modules>
 
 	<properties>
