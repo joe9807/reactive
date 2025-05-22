@@ -1,6 +1,15 @@
 server:
   port: ${TOMCAT_SERVER_PORT}
 
+spring:
+  datasource:
+    password: postgres
+    url: jdbc:postgresql://${SERVER_HOST:localhost}:5432/reactive_database
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: none
+
 management:
   endpoints:
     web:
