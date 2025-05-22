@@ -12,6 +12,6 @@ grpc:
     port: ${SERVER_PORT}
 
   client:
-    third-service:
-      address: static://localhost:6083
+    fourth-service:
+      address: static://localhost:6084
       negotiation-type: plaintext

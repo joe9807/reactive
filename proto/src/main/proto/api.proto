@@ -45,9 +45,13 @@ message SixthDto {
 }
 
 service FirstService {
-  rpc process1 (FirstDto) returns (ThirdDto);
+  rpc process1 (FirstDto) returns (FourthDto);
 }
 
 service SecondService {
-  rpc process2 (SecondDto) returns (ThirdDto);
+  rpc process2 (SecondDto) returns (FourthDto);
+}
+
+service ThirdService {
+  rpc process3 (ThirdDto) returns (FourthDto);
 }
