@@ -1,0 +1,17 @@
+server:
+  port: ${TOMCAT_SERVER_PORT}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+grpc:
+  server:
+    port: ${SERVER_PORT}
+
+  client:
+    fifth-service:
+      address: static://localhost:6085
+      negotiation-type: plaintext

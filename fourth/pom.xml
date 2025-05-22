@@ -18,6 +18,7 @@
         <module>fourthmodel</module>
 		<module>fourthasync</module>
 		<module>fourthsync</module>
+		<module>fourthgrpc</module>
 	</modules>
 	<properties>
 		<java.version>17</java.version>

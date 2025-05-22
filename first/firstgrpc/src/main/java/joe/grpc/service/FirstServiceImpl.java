@@ -22,7 +22,7 @@ public class FirstServiceImpl extends FirstServiceGrpc.FirstServiceImplBase {
     private SecondServiceGrpc.SecondServiceStub secondServiceStub;
 
     @Override
-    public void process1(Api.FirstDto request, StreamObserver<Api.FourthDto> responseObserver) {
+    public void process1(Api.FirstDto request, StreamObserver<Api.FifthDto> responseObserver) {
         log.info("request: {}", request);
         secondServiceStub.process2(mapper.map(request), responseObserver);
     }
