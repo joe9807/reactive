@@ -1,5 +1,7 @@
 package joe.grpc.service;
 
+import com.google.protobuf.Struct;
+import com.google.protobuf.Value;
 import io.grpc.stub.StreamObserver;
 import joe.grpc.entity.ReactiveFields;
 import joe.grpc.mapper.SixthMapper;
@@ -18,10 +20,17 @@ public class SixthServiceImpl extends SixthServiceGrpc.SixthServiceImplBase {
     private final CrudFieldsRepository repository;
 
     @Override
-    public void process6(Api.SixthDto request, StreamObserver<Api.SixthDto> responseObserver) {
+    public void process(Api.SixthDto request, StreamObserver<Struct> responseObserver) {
         log.info("request: {}", request);
         ReactiveFields reactiveFields = repository.save(mapper.dtoToEntity(request, "GRPC"));
-        responseObserver.onNext(mapper.entityToDto(reactiveFields));
+
+        Struct struct = Struct.newBuilder()
+                .putFields("field111111", Value.newBuilder().setStringValue(reactiveFields.getField111111()).build())
+                .putFields("field222222", Value.newBuilder().setStringValue(reactiveFields.getField222222()).build())
+                .putFields("field333333", Value.newBuilder().setStringValue(reactiveFields.getField333333()).build())
+                .putFields("field444444", Value.newBuilder().setStringValue(reactiveFields.getField444444()).build())
+                .build();
+        responseObserver.onNext(struct);
         responseObserver.onCompleted();
     }
 }

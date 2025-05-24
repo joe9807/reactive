@@ -2,6 +2,8 @@ syntax = "proto3";
 
 option java_package = "joe.model";
 
+import "google/protobuf/struct.proto";
+
 message FirstDto {
   string field1 = 1;
   string field2 = 2;
@@ -45,25 +47,25 @@ message SixthDto {
 }
 
 service FirstService {
-  rpc process1 (FirstDto) returns (SixthDto);
+  rpc process (FirstDto) returns (google.protobuf.Struct);
 }
 
 service SecondService {
-  rpc process2 (SecondDto) returns (SixthDto);
+  rpc process (SecondDto) returns (google.protobuf.Struct);
 }
 
 service ThirdService {
-  rpc process3 (ThirdDto) returns (SixthDto);
+  rpc process (ThirdDto) returns (google.protobuf.Struct);
 }
 
 service FourthService {
-  rpc process4 (FourthDto) returns (SixthDto);
+  rpc process (FourthDto) returns (google.protobuf.Struct);
 }
 
 service FifthService {
-  rpc process5 (FifthDto) returns (SixthDto);
+  rpc process (FifthDto) returns (google.protobuf.Struct);
 }
 
 service SixthService {
-  rpc process6 (SixthDto) returns (SixthDto);
+  rpc process (SixthDto) returns (google.protobuf.Struct);
 }

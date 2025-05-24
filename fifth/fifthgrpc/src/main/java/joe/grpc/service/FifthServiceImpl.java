@@ -1,5 +1,6 @@
 package joe.grpc.service;
 
+import com.google.protobuf.Struct;
 import io.grpc.stub.StreamObserver;
 import joe.grpc.mapper.FifthMapper;
 import joe.model.Api;
@@ -22,8 +23,8 @@ public class FifthServiceImpl extends FifthServiceGrpc.FifthServiceImplBase {
     private SixthServiceGrpc.SixthServiceStub sixthServiceStub;
 
     @Override
-    public void process5(Api.FifthDto request, StreamObserver<Api.SixthDto> responseObserver) {
+    public void process(Api.FifthDto request, StreamObserver<Struct> responseObserver) {
         log.info("request: {}", request);
-        sixthServiceStub.process6(mapper.map(request), responseObserver);
+        sixthServiceStub.process(mapper.map(request), responseObserver);
     }
 }
