@@ -18,4 +18,4 @@ management:
 
 grpc:
   server:
-    port: ${SERVER_PORT}
+    port: ${GRPC_SERVER_PORT}

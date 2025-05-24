@@ -9,9 +9,9 @@ management:
 
 grpc:
   server:
-    port: ${SERVER_PORT}
+    port: ${GRPC_SERVER_PORT}
 
   client:
     fourth-service:
-      address: static://localhost:6084
+      address: static://${SERVER_HOST:localhost}:6084
       negotiation-type: plaintext
