@@ -47,25 +47,25 @@ message SixthDto {
 }
 
 service FirstService {
-  rpc process (FirstDto) returns (google.protobuf.Struct);
+  rpc process (FirstDto) returns (stream google.protobuf.Struct);
 }
 
 service SecondService {
-  rpc process (SecondDto) returns (google.protobuf.Struct);
+  rpc process (SecondDto) returns (stream google.protobuf.Struct);
 }
 
 service ThirdService {
-  rpc process (ThirdDto) returns (google.protobuf.Struct);
+  rpc process (ThirdDto) returns (stream google.protobuf.Struct);
 }
 
 service FourthService {
-  rpc process (FourthDto) returns (google.protobuf.Struct);
+  rpc process (FourthDto) returns (stream google.protobuf.Struct);
 }
 
 service FifthService {
-  rpc process (FifthDto) returns (google.protobuf.Struct);
+  rpc process (FifthDto) returns (stream google.protobuf.Struct);
 }
 
 service SixthService {
-  rpc process (SixthDto) returns (google.protobuf.Struct);
+  rpc process (SixthDto) returns (stream google.protobuf.Struct);
 }
