@@ -10,8 +10,5 @@ import java.util.Optional;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface SixthMapper {
     ReactiveFields mapToEntity(SixthDto fifthDto, String type);
-    default SixthDto mapToDto(Optional<ReactiveFields> reactiveFields){
-        return reactiveFields.map(this::mapToDto).orElse(null);
-    }
     SixthDto mapToDto(ReactiveFields reactiveFields);
 }

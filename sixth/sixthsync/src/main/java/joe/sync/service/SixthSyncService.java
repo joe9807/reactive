@@ -15,7 +15,7 @@ public class SixthSyncService {
 
     @Cacheable(key = "#id", value = "fields")
     public SixthDto findById(Long id){
-        return mapper.mapToDto(repository.findById(id));
+        return mapper.mapToDto(repository.findById(id).orElse(null));
     }
 
     public SixthDto process(SixthDto sixthDto){
