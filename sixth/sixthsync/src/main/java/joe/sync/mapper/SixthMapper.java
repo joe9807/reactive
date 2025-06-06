@@ -5,8 +5,6 @@ import joe.sync.entity.ReactiveFields;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
-import java.util.Optional;
-
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface SixthMapper {
     ReactiveFields mapToEntity(SixthDto fifthDto, String type);
