@@ -2,9 +2,9 @@ package joe.sync.service;
 
 import joe.reactive.sixth.SixthDto;
 import joe.sync.mapper.SixthMapper;
+import joe.sync.redis.RedisCache;
 import joe.sync.repository.CrudFieldsRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,13 +12,13 @@ import org.springframework.stereotype.Service;
 public class SixthSyncService {
     private final CrudFieldsRepository repository;
     private final SixthMapper mapper;
+    private final RedisCache redisCache;
 
-    @Cacheable(key = "#id", value = "fields")
     public SixthDto findById(Long id){
-        return mapper.mapToDto(repository.findById(id).orElse(null));
+        return redisCache.findById(id);
     }
 
     public SixthDto process(SixthDto sixthDto){
-        return mapper.mapToDto(repository.save(mapper.mapToEntity(sixthDto, "SYNC")));
+        return redisCache.save(repository.save(mapper.mapToEntity(sixthDto, "SYNC")));
     }
 }
