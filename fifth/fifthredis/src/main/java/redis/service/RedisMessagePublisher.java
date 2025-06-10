@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class RedisMessagePublisher {
 
-    private final RedisTemplate<String, Object> redisTemplate;
+    private final RedisTemplate<String, SixthDto> redisTemplate;
     private final ChannelTopic topic;
 
     public void publish(SixthDto sixthDto) {
