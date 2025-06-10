@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class RedisMessagePublisher implements MessagePublisher {
+public class RedisMessagePublisher {
 
     private final RedisTemplate<String, Object> redisTemplate;
     private final ChannelTopic topic;
