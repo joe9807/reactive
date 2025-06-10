@@ -11,9 +11,9 @@ import org.springframework.stereotype.Component;
 public class RedisMessagePublisher {
 
     private final RedisTemplate<String, SixthDto> redisTemplate;
-    private final ChannelTopic topic;
+    private final ChannelTopic outTopic;
 
     public void publish(SixthDto sixthDto) {
-        redisTemplate.convertAndSend(topic.getTopic(), sixthDto);
+        redisTemplate.convertAndSend(outTopic.getTopic(), sixthDto);
     }
 }

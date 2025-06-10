@@ -31,7 +31,7 @@ public class SixthRedisApplication {
 	RedisMessageListenerContainer redisContainer(LettuceConnectionFactory lettuceConnectionFactory, CrudFieldsRepository repository, SixthMapper mapper) {
 		RedisMessageListenerContainer container = new RedisMessageListenerContainer();
 		container.setConnectionFactory(lettuceConnectionFactory);
-		container.addMessageListener(messageListener(repository, mapper), new ChannelTopic("joe_queue"));
+		container.addMessageListener(messageListener(repository, mapper), new ChannelTopic("sixth_topic"));
 		return container;
 	}
 }
