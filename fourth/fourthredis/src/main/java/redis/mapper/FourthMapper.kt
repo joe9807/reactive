@@ -5,7 +5,7 @@ import joe.model.FourthDto
 import org.springframework.stereotype.Component
 
 @Component
-class FifthMapper {
+class FourthMapper {
     fun map(fourthDto: FourthDto): FifthDto {
         return FifthDto.builder()
             .field11111(fourthDto.field1111)
