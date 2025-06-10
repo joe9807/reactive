@@ -60,36 +60,11 @@
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <version>${kotlin.version}</version>
-                <dependencies>
-                    <!-- other dependencies -->
-                    <dependency>
-                        <groupId>org.mapstruct</groupId>
-                        <artifactId>mapstruct-processor</artifactId>
-                        <version>1.5.5.Final</version>
-                    </dependency>
-                </dependencies>
                 <executions>
                     <execution>
                         <id>compile</id>
                         <goals><goal>compile</goal></goals>
                     </execution>
-                    <execution>
-                        <id>kapt</id>
-                        <goals><goal>kapt</goal></goals>
-                        <configuration>
-                            <sourceDirs>
-                                <sourceDir>src/main/java</sourceDir>
-                            </sourceDirs>
-                            <annotationProcessorPaths>
-                                <annotationProcessorPath>
-                                    <groupId>org.mapstruct</groupId>
-                                    <artifactId>mapstruct-processor</artifactId>
-                                    <version>1.5.5.Final</version>
-                                </annotationProcessorPath>
-                            </annotationProcessorPaths>
-                        </configuration>
-                    </execution>
-
                 </executions>
             </plugin>
 
