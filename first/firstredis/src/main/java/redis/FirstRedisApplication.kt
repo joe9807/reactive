@@ -6,13 +6,13 @@ import org.springframework.context.annotation.Bean
 import org.springframework.data.redis.listener.ChannelTopic
 
 fun main(args: Array<String>) {
-    runApplication<FourthRedisApplication>(*args)
+    runApplication<FirstRedisApplication>(*args)
 }
 
 @SpringBootApplication
-open class FourthRedisApplication {
+open class FirstRedisApplication {
     @Bean
     open fun topic(): ChannelTopic {
-        return ChannelTopic("first_topic")
+        return ChannelTopic("second_topic")
     }
 }

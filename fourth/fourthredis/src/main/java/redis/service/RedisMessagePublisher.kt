@@ -6,8 +6,8 @@ import org.springframework.data.redis.listener.ChannelTopic
 import org.springframework.stereotype.Component
 
 @Component
-class RedisMessagePublisher (private val redisTemplate: RedisTemplate<String, FifthDto>, private val topic: ChannelTopic){
+class RedisMessagePublisher (private val redisTemplate: RedisTemplate<String, FifthDto>, private val outTopic: ChannelTopic){
     fun publish(fifthDto: FifthDto){
-        redisTemplate.convertAndSend(topic.topic, fifthDto)
+        redisTemplate.convertAndSend(outTopic.topic, fifthDto)
     }
 }

@@ -26,6 +26,7 @@
 		<module>thirdasync</module>
 		<module>thirdsync</module>
 		<module>thirdgrpc</module>
+		<module>thirdredis</module>
 	</modules>
 	<properties>
 		<java.version>17</java.version>

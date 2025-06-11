@@ -18,6 +18,7 @@
 		<module>secondasync</module>
 		<module>secondsync</module>
 		<module>secondgrpc</module>
+		<module>secondredis</module>
 	</modules>
 	<properties>
 		<java.version>17</java.version>
