@@ -41,6 +41,11 @@
             <artifactId>sixthmodel</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson</artifactId>
+            <version>3.50.0</version>
+        </dependency>
     </dependencies>
 
     <build>
