@@ -4,12 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>joe</groupId>
-        <artifactId>first</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <groupId>groupId</groupId>
+        <artifactId>reactive</artifactId>
+        <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>firstredis</artifactId>
+    <groupId>joe</groupId>
+    <artifactId>kotlinmodule</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -19,16 +21,6 @@
     </properties>
 
     <dependencies>
-        <!-- Spring Boot -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-
         <!-- Kotlin -->
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
@@ -40,21 +32,10 @@
             <artifactId>kotlin-reflect</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
-
         <dependency>
-            <groupId>joe</groupId>
-            <artifactId>firstmodel</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>joe.reactive</groupId>
-            <artifactId>secondmodel</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>joe</groupId>
-            <artifactId>kotlinmodule</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>org.jetbrains.kotlinx</groupId>
+            <artifactId>kotlinx-coroutines-core</artifactId>
+            <version>${kotlin.version}</version>
         </dependency>
     </dependencies>
 
@@ -65,6 +46,11 @@
                 <groupId>org.jetbrains.kotlin</groupId>
                 <artifactId>kotlin-maven-plugin</artifactId>
                 <version>${kotlin.version}</version>
+                <configuration>
+                    <sourceDirs>
+                        <sourceDir>src/main/kotlin</sourceDir>
+                    </sourceDirs>
+                </configuration>
                 <executions>
                     <execution>
                         <id>compile</id>
@@ -72,13 +58,6 @@
                     </execution>
                 </executions>
             </plugin>
-
-            <!-- Spring Boot Maven Plugin -->
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
         </plugins>
     </build>
-
 </project>

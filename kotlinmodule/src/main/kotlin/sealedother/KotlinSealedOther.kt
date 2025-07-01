@@ -1,0 +1,4 @@
+package sealedother
+
+class KotlinSealedOther {
+}
