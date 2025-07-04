@@ -28,6 +28,8 @@ public class RedisMessageSubscriber {
         try {
             if (rlock.tryLock(10, TimeUnit.SECONDS)) {
                 repository.save(mapper.mapToEntity(sixthDto, "REDIS"));
+            } else {
+                log.info("lock was not acquired during timeout");
             }
         } catch (Exception e) {
             log.error("Error during lock acquiring", e);
