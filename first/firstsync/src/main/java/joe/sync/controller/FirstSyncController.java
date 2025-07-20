@@ -35,9 +35,9 @@ public class FirstSyncController {
         return CompletableFuture.supplyAsync(()-> {
             log.info(Thread.currentThread().getName()+" - supplyAsync");
             return "supplyAsync";
-        }).thenCombineAsync(CompletableFuture.runAsync(() -> log.info(Thread.currentThread().getName()+" - thenCombineAsync(runAsync)")), (t, u)->{
-            log.info(Thread.currentThread().getName()+" - thenCombineAsync");
-            return t+ " thenCombineAsync(runAsync)";
+        }).thenCombineAsync(CompletableFuture.runAsync(() -> log.info(Thread.currentThread().getName()+" - thenCombineAsync0(runAsync)")), (t, u)->{
+            log.info(Thread.currentThread().getName()+" - thenCombineAsync0");
+            return t+ " thenCombineAsync0(runAsync)";
         }).thenApplyAsync(v->{
             log.info(Thread.currentThread().getName()+" - thenApplyAsync0");
             return v+" thenApplyAsync0";
@@ -55,10 +55,10 @@ public class FirstSyncController {
             });
         }).thenCombineAsync(
             CompletableFuture.supplyAsync(() -> {
-                log.info(Thread.currentThread().getName()+" - thenCombineAsync(supplyAsync)");
-                return " thenCombineAsync(supplyAsync)";
+                log.info(Thread.currentThread().getName()+" - thenCombineAsync1(supplyAsync)");
+                return " thenCombineAsync1(supplyAsync)";
             }), (t, u)->{
-                log.info(Thread.currentThread().getName()+" - thenCombineAsync0");
+                log.info(Thread.currentThread().getName()+" - thenCombineAsync1");
                 return t+u;
         }).handle((result, ex)->{
             log.info("--------------------------------------------------- handle");
