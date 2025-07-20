@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import java.net.URI;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 @Slf4j
@@ -67,7 +68,21 @@ public class FirstSyncController {
             }), (t, u)->{
                 log.info(Thread.currentThread().getName()+" - thenCombineAsync1");
                 return t+u;
-        }).handle((result, ex)->{
+        }).handle(new HandleFunction())
+                .exceptionally(new ExceptionallyFunction());
+    }
+
+    public String handleMethod(String result, Throwable throwable) {
+        return "handleMethod";
+    }
+
+    public String exceptionallyMethod(Throwable throwable) {
+        return "exceptionallyMethod";
+    }
+
+    public static class HandleFunction implements BiFunction<String, Throwable, String> {
+        @Override
+        public String apply(String result, Throwable ex) {
             log.info("--------------------------------------------------- handle");
             if (ex != null) {
                 log.info("Exception: ", ex);
@@ -76,15 +91,10 @@ public class FirstSyncController {
                 throw new RuntimeException(ex);
             }
             return result+" handle";
-        }).exceptionally(new ExceptionallyFunction());
-    }
-
-    public String exceptionally(Throwable throwable) {
-        return "exceptionallyMethod";
+        }
     }
 
     public static class ExceptionallyFunction implements Function<Throwable, String> {
-
         @Override
         public String apply(Throwable throwable) {
             return "exceptionallyClass";
