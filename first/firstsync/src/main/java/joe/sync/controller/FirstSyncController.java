@@ -72,6 +72,10 @@ public class FirstSyncController {
                 log.info("Exception: ", ex);
             }
             return result+" handle";
-        });
+        }).exceptionally(this::exceptionally);
+    }
+
+    public String exceptionally(Throwable throwable) {
+        return "exceptionally";
     }
 }
