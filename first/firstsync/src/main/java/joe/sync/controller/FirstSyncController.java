@@ -72,6 +72,9 @@ public class FirstSyncController {
             if (ex != null) {
                 log.info("Exception: ", ex);
             }
+            if (Math.random()>0.5) {
+                throw new RuntimeException(ex);
+            }
             return result+" handle";
         }).exceptionally(new ExceptionallyFunction());
     }
