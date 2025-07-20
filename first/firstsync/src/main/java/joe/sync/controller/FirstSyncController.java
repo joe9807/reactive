@@ -35,13 +35,10 @@ public class FirstSyncController {
         return CompletableFuture.supplyAsync(()-> {
             log.info(Thread.currentThread().getName()+" - supplyAsync");
             return "supplyAsync";
-        }).thenCombineAsync(CompletableFuture.runAsync(() -> {
-            log.info(Thread.currentThread().getName()+" - thenCombineAsync(runAsync)");
-        }), (t, u)->{
+        }).thenCombineAsync(CompletableFuture.runAsync(() -> log.info(Thread.currentThread().getName()+" - thenCombineAsync(runAsync)")), (t, u)->{
             log.info(Thread.currentThread().getName()+" - thenCombineAsync");
-            return t+(u == null?" runAsync":u);
-        })
-        .thenApplyAsync(v->{
+            return t+ " thenCombineAsync(runAsync)";
+        }).thenApplyAsync(v->{
             log.info(Thread.currentThread().getName()+" - thenApplyAsync0");
             return v+" thenApplyAsync0";
         }).thenApplyAsync(v->{
