@@ -48,10 +48,16 @@ public class FirstSyncController {
             log.info(Thread.currentThread().getName()+" - thenApplyAsync2");
             return v+" thenApplyAsync2";
         }).thenComposeAsync(v->{
-            log.info(Thread.currentThread().getName()+" - thenComposeAsync");
+            log.info(Thread.currentThread().getName()+" - thenComposeAsync0");
             return CompletableFuture.supplyAsync(() -> {
-                log.info(Thread.currentThread().getName()+" - thenComposeAsync(supplyAsync)");
-                return v+" thenComposeAsync(supplyAsync)";
+                log.info(Thread.currentThread().getName()+" - thenComposeAsync0(supplyAsync)");
+                return v+" thenComposeAsync0(supplyAsync)";
+            });
+        }).thenComposeAsync(v->{
+            log.info(Thread.currentThread().getName()+" - thenComposeAsync1");
+            return CompletableFuture.supplyAsync(() -> {
+                log.info(Thread.currentThread().getName()+" - thenComposeAsync1(supplyAsync)");
+                return v+" thenComposeAsync1(supplyAsync)";
             });
         }).thenCombineAsync(
             CompletableFuture.supplyAsync(() -> {
@@ -65,7 +71,7 @@ public class FirstSyncController {
             if (ex != null) {
                 log.info("Exception: ", ex);
             }
-            return result;
+            return result+" handle";
         });
     }
 }
