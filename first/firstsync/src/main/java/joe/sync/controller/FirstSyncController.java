@@ -13,6 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import java.net.URI;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
+import java.util.function.Function;
 
 @Slf4j
 @RestController
@@ -72,10 +73,18 @@ public class FirstSyncController {
                 log.info("Exception: ", ex);
             }
             return result+" handle";
-        }).exceptionally(this::exceptionally);
+        }).exceptionally(new ExceptionallyFunction());
     }
 
     public String exceptionally(Throwable throwable) {
-        return "exceptionally";
+        return "exceptionallyMethod";
+    }
+
+    public static class ExceptionallyFunction implements Function<Throwable, String> {
+
+        @Override
+        public String apply(Throwable throwable) {
+            return "exceptionallyClass";
+        }
     }
 }
