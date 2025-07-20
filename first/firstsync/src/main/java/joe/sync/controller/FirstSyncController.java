@@ -60,8 +60,11 @@ public class FirstSyncController {
             }), (t, u)->{
                 log.info(Thread.currentThread().getName()+" - thenCombineAsync0");
                 return t+u;
-        }).thenApplyAsync(result->{
-            log.info("--------------------------------------------------- thenApplyAsync");
+        }).handle((result, ex)->{
+            log.info("--------------------------------------------------- handle");
+            if (ex != null) {
+                log.info("Exception: ", ex);
+            }
             return result;
         });
     }
