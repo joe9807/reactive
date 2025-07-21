@@ -88,7 +88,8 @@ public class FirstSyncController {
                 log.info("Exception: ", ex);
             }
             if (Math.random()>0.5) {
-                throw new RuntimeException(ex);
+                 log.info("Exception was thrown");
+                throw new RuntimeException(ex!=null?ex.getMessage():"Manual Exception");
             }
             return result+" handle";
         }
