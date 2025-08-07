@@ -3,13 +3,15 @@ package joe.sync.service;
 import joe.reactive.sixth.SixthDto;
 import joe.sync.mapper.SixthMapper;
 import joe.sync.redis.RedisCache;
-import joe.sync.repository.CrudFieldsRepository;
+import joe.sync.repository.mongo.MongoFieldsRepository;
+import joe.sync.repository.postgres.CrudFieldsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public class SixthSyncService {
+    private final MongoFieldsRepository mongoFieldsRepository;
     private final CrudFieldsRepository repository;
     private final SixthMapper mapper;
     private final RedisCache redisCache;
@@ -19,6 +21,7 @@ public class SixthSyncService {
     }
 
     public SixthDto process(SixthDto sixthDto){
+        mongoFieldsRepository.save(mapper.mapToMongoEntity(sixthDto, "SYNC"));
         return redisCache.save(repository.save(mapper.mapToEntity(sixthDto, "SYNC")));
     }
 }

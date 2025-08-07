@@ -1,4 +1,4 @@
-package joe.sync.entity;
+package joe.sync.entity.postgres;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

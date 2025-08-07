@@ -1,9 +1,9 @@
 package joe.sync.redis;
 
 import joe.reactive.sixth.SixthDto;
-import joe.sync.entity.ReactiveFields;
+import joe.sync.entity.postgres.ReactiveFields;
 import joe.sync.mapper.SixthMapper;
-import joe.sync.repository.CrudFieldsRepository;
+import joe.sync.repository.postgres.CrudFieldsRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
