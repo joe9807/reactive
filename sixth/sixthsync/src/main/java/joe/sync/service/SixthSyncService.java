@@ -20,8 +20,15 @@ public class SixthSyncService {
         return redisCache.findById(id);
     }
 
+    public SixthDto findByIdMongo(String id){
+        return mapper.mapToDto(mongoFieldsRepository.findById(id).orElse(null));
+    }
+
     public SixthDto process(SixthDto sixthDto){
-        mongoFieldsRepository.save(mapper.mapToMongoEntity(sixthDto, "SYNC"));
         return redisCache.save(repository.save(mapper.mapToEntity(sixthDto, "SYNC")));
+    }
+
+    public SixthDto processMongo(SixthDto sixthDto){
+        return mapper.mapToDto(mongoFieldsRepository.save(mapper.mapToMongoEntity(sixthDto, "SYNC")));
     }
 }

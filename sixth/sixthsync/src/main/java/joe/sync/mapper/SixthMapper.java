@@ -11,4 +11,5 @@ public interface SixthMapper {
     MongoReactiveFields mapToMongoEntity(SixthDto fifthDto, String type);
     ReactiveFields mapToEntity(SixthDto fifthDto, String type);
     SixthDto mapToDto(ReactiveFields reactiveFields);
+    SixthDto mapToDto(MongoReactiveFields reactiveFields);
 }
